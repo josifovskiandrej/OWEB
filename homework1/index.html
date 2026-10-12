@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Smart Home Control Panel</title>
+</head>
+
+<body>
+    <p align="right"><a href="#notifications"><img src="img/notif.png" width="50" alt="Notifications" /></a></p>
+    <h1 align="center">Welcome!</h1>
+    <p align="center">Select one of the following rooms to view their sensors.</p>
+
+    <nav align="center">
+        <table align="center">
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="#bedroom">
+                            <img src="img/bedroom.png" width="125" height="125" alt="Bedroom">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#livingroom">
+                            <img src="img/livingroom.png" width="125" height="125" alt="Living Room">
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="#kitchen">
+                            <img src="img/kitchen.png" width="125" height="125" alt="Kitchen">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#garden">
+                            <img src="img/garden.png" width="125" height="125" alt="Garden">
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </nav>
+
+    <h2 id="bedroom">Bedroom</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <td rowspan="3"></td>
+                <th colspan="3">Sensors</th>
+            </tr>
+
+            <tr>
+                <th scope="col">
+                    <img src="img/sensors/temperature.png" width="35" alt="" align="absmiddle" />
+                    Temperature Sensor
+                </th>
+                <th scope="col">
+                    <img src="img/sensors/contact.png" width="35" alt="" align="absmiddle" />
+                    Contact Sensor
+                </th>
+                <th scope="col">
+                    <img src="img/sensors/ambient.png" width="35" alt="" align="absmiddle" />
+                    Ambient Light Sensor
+                </th>
+            </tr>
+
+            <tr>
+                <td align="absmiddle">Reading: 26&deg;C <meter min="0" max="40" low="20" high="22" optimum="24"
+                        value="26"">26  &deg;C</meter></td>
+                <td align=" center"><input type="checkbox" disabled checked> Bedroom door open</td>
+                <td align="center"><input type="range" min="0" max="100" value="30"></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Status</th>
+                <td align="center">Active! Low battery!</td>
+                <td align="center">Active!</td>
+                <td align="center">Active!</td>
+            </tr>
+            <tr>
+                <th scope="row">Battery</th>
+                <td align="center">10% <input type="color" value="#D30000" style="width: 35px; height: 25px;"
+                        disabled /></td>
+                <td align="center">62% <input type="color" value="#CCFF00" style="width: 35px; height: 25px;"
+                        disabled /></td>
+                <td align="center">100% <input type="color" value="#008000" style="width: 35px; height: 25px;"
+                        disabled /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="livingroom">Living Room</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <td rowspan="3"></td>
+                <th colspan="3">Sensors</th>
+            </tr>
+
+            <tr>
+                <th scope="col">
+                    <img src="img/sensors/temperature.png" width="35" alt="" align="absmiddle" />
+                    Temperature Sensor
+                </th>
+                <th scope="col">
+                    <img src="img/sensors/mmwave.png" width="35" alt="" align="absmiddle" />
+                    Millimeter Wave Sensor
+                </th>
+                <th scope="col">
+                    <img src="img/sensors/ambient.png" width="35" alt="" align="absmiddle" />
+                    Ambient Light Sensor
+                </th>
+            </tr>
+
+            <tr>
+                <td align="absmiddle">Reading: 22&deg;C <meter min="0" max="40" low="20" high="22" optimum="24"
+                        value="22">22&deg;C</meter></td>
+                <td align="center">Detected <input type="number" value="8" disabled style="width: 3ch;"> people within
+                    the room.</td>
+                <td align="center">Disabled due to active sunlight.</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Status</th>
+                <td align="center">Active!</td>
+                <td align="center">Active! Very low battery!</td>
+                <td align="center">Inactive.</td>
+            </tr>
+            <tr>
+                <th scope="row">Battery</th>
+                <td align="center">42% <input type="color" value="#D5B60A" style="width: 35px; height: 25px;"
+                        disabled /></td>
+                <td align="center">8% <input type="color" value="#8B0000" style="width: 35px; height: 25px;" disabled />
+                </td>
+                <td align="center">67% <input type="color" value="#CCFF00" style="width: 35px; height: 25px;"
+                        disabled /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="kitchen">Kitchen</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <td rowspan="3"></td>
+                <th colspan="3">Sensors</th>
+            </tr>
+
+            <tr>
+                <th scope="col">
+                    <img src="img/sensors/co2.png" width="35" align="absmiddle" alt="" />
+                    CO<sub>2</sub> Sensor
+                </th>
+                <th scope="col">
+                    <img src="img/sensors/pantry.png" width="35" alt="" align="absmiddle" />
+                    Pantry Light Sensor
+                </th>
+                <th scope="col">
+                    <img src="img/sensors/temperature.png" width="35" alt="" align="absmiddle" />
+                    Temperature Sensor
+                </th>
+            </tr>
+
+            <tr>
+                <td align="absmiddle"><progress value="620" max="5000"></progress> 620 ppm</td>
+                <td align="center">Pantry light <strong>active!</strong></td>
+                <td align="center">Reading unavailable...</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Status</th>
+                <td align="center">Active!</td>
+                <td align="center">Active!</td>
+                <td align="center">Inactive! Please charge...</td>
+            </tr>
+            <tr>
+                <th scope="row">Battery</th>
+                <td align="center">94% <input type="color" value="#006400" style="width: 35px; height: 25px;"
+                        disabled /></td>
+                <td align="center">26% <input type="color" value="#FF8C00" style="width: 35px; height: 25px;"
+                        disabled /></td>
+                <td align="center">0% <input type="color" value="#000000" style="width: 35px; height: 25px;" disabled />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="garden">Garden</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <td rowspan="3"></td>
+                <th colspan="3">Sensors</th>
+            </tr>
+
+            <tr>
+                <th scope="col">
+                    <img src="img/sensors/temperature.png" width="35" alt="" align="absmiddle" />
+                    Temperature Sensor
+                </th>
+                <th scope="col">
+                    <img src="img/sensors/motion.png" width="35" alt="" align="absmiddle" />
+                    Motion Sensor
+                </th>
+                <th scope="col">
+                    <img src="img/sensors/sprinkler.png" width="35" alt="" align="absmiddle" />
+                    Automatic Sprinkler Sensor
+                </th>
+            </tr>
+            <tr>
+                <td align="absmiddle">Reading: 20&deg;C <meter min="0" max="40" low="20" high="22" optimum="24"
+                        value="20"">20&deg;C</meter></td>
+                <td align=" center"><strong>Monitoring...</strong></td>
+                <td align="center"><output>Plants are watered!</output></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Status</th>
+                <td align="center">Active!</td>
+                <td align="center">Active! Low battery!</td>
+                <td align="center">Active!</td>
+            </tr>
+            <tr>
+                <th scope="row">Battery</th>
+                <td align="center">30% <input type="color" value="#FFA500" style="width: 35px; height: 25px;"
+                        disabled /></td>
+                <td align="center">15% <input type="color" value="#FF2400" style="width: 35px; height: 25px;"
+                        disabled /></td>
+                <td align="center">78% <input type="color" value="#90EE90" style="width: 35px; height: 25px;"
+                        disabled /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="notifications">Notifications</h2>
+    <details>
+        <summary>Bedroom</summary>
+        <ul>
+            <li>[10/12/2026 @ 7:06 PM (Temperature Sensor)] Read temperature is <strong>out of normal range</strong>.
+                (20-24&deg;C)</li>
+            <li>[10/10/2026 @ 10:15 PM (Contact Sensor)] <strong>Bedroom door closed!</strong></li>
+            <li>[10/10/2026 @ 10:11 PM (Contact Sensor)] <strong>Bedroom door opened!</strong></li>
+            <li>[10/08/2026 @ 4:34 PM (Ambient Light Sensor)] Changed lights from <strong>moody</strong> to
+                <strong>regular</strong> preset.
+            </li>
+        </ul>
+    </details>
+    <details>
+        <summary>Living Room</summary>
+        <ul>
+            <li>[10/08/2026 @ 7:30 PM (Millimeter Wave Sensor)] <strong>Detected 10 people on the couch, turning TV
+                    on...</strong></li>
+            <li>[10/10/2026 @ 10:08 PM (Temperature Sensor)] <strong>Battery empty!</strong> Please charge...</li>
+            <li>[10/06/2026 @ 10:15 PM (Ambient Light Sensor)] Added new light preset: <strong>dim</strong></li>
+        </ul>
+    </details>
+    <details>
+        <summary>Kitchen</summary>
+        <ul>
+            <li>[9/20/2026 @ 6:45 PM (CO<sub>2</sub> Sensor)] Very high CO<sub>2</sub> level (<strong>10000
+                    ppm</strong>),
+                possible fire. Calling fire brigade</li>
+            <li>[10/12/2026 @ 3:15 PM (Pantry Light Sensor)] Door has been open for 20 minutes, dimming light to
+                conserve
+                energy.</li>
+        </ul>
+    </details>
+    <details>
+        <summary>Garden</summary>
+        <ul>
+            <li>[10/05/2026 @ 11:15 AM (Automatic Sprinkler Sensor)] Sprinklers will be active in 5 minutes!</li>
+            <li>[10/02/2026 @ 2:13 AM (Motion Sensor)] <strong>Movement detected!</strong> Was that you?</li>
+        </ul>
+    </details>
+</body>
+
+</html>
