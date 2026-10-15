@@ -239,12 +239,12 @@
     </table>
 
     <h2 id="notifications">Notifications</h2>
-    <button type="button" onclick="alert('Notifications cleared!\n(Not really...)')">Clear Notifications...</button>
+    <button type="button">Clear Notifications...</button>
     <details>
         <summary>Bedroom</summary>
         <ul>
             <li>[10/12/2026 @ 7:06 PM (Temperature Sensor)] Read temperature is <strong>out of normal range</strong>.
-                (20-24&deg;C)</li>
+                Range: 20&deg;C &lt; temp &lt; 24&deg;C</li>
             <li>[10/10/2026 @ 10:15 PM (Contact Sensor)] <strong>Bedroom door closed!</strong></li>
             <li>[10/10/2026 @ 10:11 PM (Contact Sensor)] <strong>Bedroom door opened!</strong></li>
             <li>[10/08/2026 @ 4:34 PM (Ambient Light Sensor)] Changed lights from <strong>moody</strong> to
@@ -255,18 +255,19 @@
     <details>
         <summary>Living Room</summary>
         <ul>
-            <li>[10/08/2026 @ 7:30 PM (Millimeter Wave Sensor)] <strong>Detected 10 people on the couch, turning TV
-                    on...</strong></li>
-            <li>[10/10/2026 @ 10:08 PM (Temperature Sensor)] <strong>Battery empty!</strong> Please charge...</li>
+            <li>[10/13/2026 @ 2:47PM (Ambient Light Sensor)] Sunlight detected! Turning off lights...</li>
+            <li>[10/10/2026 @ 7:30 PM (Millimeter Wave Sensor)] <strong>Detected 10 people on the couch, turning TV
+                    on...</strong> Range: 1 &lt; people &lt; 15.</li>
+            <li>[10/08/2026 @ 10:08 PM (Temperature Sensor)] <strong>Battery empty!</strong> Please charge...</li>
             <li>[10/06/2026 @ 10:15 PM (Ambient Light Sensor)] Added new light preset: <strong>dim</strong></li>
         </ul>
     </details>
     <details>
         <summary>Kitchen</summary>
         <ul>
-            <li>[9/20/2026 @ 6:45 PM (CO<sub>2</sub> Sensor)] Very high CO<sub>2</sub> level (<strong>10000
+            <li>[9/20/2026 @ 6:45 PM (CO<sub>2</sub> Sensor)] Very high CO<sub>2</sub> reading (<strong>&gt;5000
                     ppm</strong>),
-                possible fire. Calling fire brigade</li>
+                possible fire. Range: 250 &lt; ppm &lt; 5000.</li>
             <li>[10/12/2026 @ 3:15 PM (Pantry Light Sensor)] Door has been open for 20 minutes, dimming light to
                 conserve
                 energy.</li>
