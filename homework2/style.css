@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+/* colors for gradient stolen from https://community.home-assistant.io/t/overlaying-several-gradients-for-lovelace-background-in-themes/699826/2 */
+html {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(217deg, rgb(35, 7, 51), rgba(0, 0, 0, 0) 110%), linear-gradient(150deg, rgb(75, 100, 150), rgba(0, 0, 0, 0) 80%), linear-gradient(336deg, rgb(10, 75, 30), rgba(0, 0, 0, 0) 100%);
+}
+
+body {
+    color: white;
+}
+
+body h1 {
+    font-family: "Figtree", system-ui, sans-serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+body h2 {
+    font-family: "Figtree", system-ui, sans-serif;
+    text-align: center;
+}
+
+body p {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+nav table {
+    margin: 0 auto;
+    border-spacing: 16px;
+}
+
+nav a {
+    display: block;
+    padding: 24px;
+    background-color: rgba(75, 100, 150, 0.3);
+    border-radius: 32px;
+    transition: background-color 0.2s, border-radius 0.2s, transform 0.2s;
+}
+
+nav a:hover {
+    background-color: rgba(75, 100, 150, 0.5);
+}
+
+nav a:active {
+    border-radius: 44px;
+    transform: scale(0.95);
+}
+
+nav img {
+    display: block;
+    width: 96px;
+    height: 96px;
+    filter: invert(1);
+}
+
+/* all sensors */
+.sensors {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.sensor {
+    width: 180px;
+    padding: 24px;
+    background-color: rgba(75, 100, 150, 0.3);
+    border-radius: 32px;
+    transition: background-color 0.2s, border-radius 0.2s, transform 0.2s;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.sensor summary {
+    list-style: none;
+    cursor: pointer;
+    text-align: center;
+    font-family: "Figtree", system-ui, sans-serif;
+}
+
+.sensor summary img {
+    display: block;
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 8px;
+    filter: invert(1);
+}
+
+#spr {
+    width: 140px;
+    height: 96px;
+    object-fit: contain;
+}
+
+.sensor dl {
+    margin: 16px 0 0;
+    text-align: center;
+}
+
+.sensor dt {
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.sensor dd {
+    margin: 0;
+}
+
+.batt {
+    width: 35px;
+    height: 25px;
+}
+
+/* notifications */
+/* b - bell */
+#notif {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+}
+
+#b {
+    list-style: none;
+    cursor: pointer;
+    padding: 12px;
+    background-color: rgba(75, 150, 100, 0.3);
+    border-radius: 24px;
+    user-select: none;
+    outline: none;
+}
+
+#b:hover {
+    background-color: rgba(75, 150, 100, 0.5);
+}
+
+#b img {
+    display: block;
+    width: 50px;
+    filter: invert(1);
+}
+
+.n {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 320px;
+    max-height: 70vh;
+    overflow-y: auto;
+    margin-top: 8px;
+    padding: 16px;
+    background-color: rgb(45, 60, 95);
+    border-radius: 24px;
+}
+
+.n button {
+    font-family: "Figtree", system-ui, sans-serif;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(75, 100, 150, 0.3);
+    border: none;
+    border-radius: 16px;
+    padding: 10px 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto 8px;
+}
+
+.n button:hover {
+    background-color: rgba(75, 100, 150, 0.5);
+}
+
+.n summary {
+    font-family: "Figtree", system-ui, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.n ul {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+}

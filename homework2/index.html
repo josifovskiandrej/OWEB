@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Smart Home Control Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Welcome!</h1>
+    <p>Select one of the following rooms to view their sensors.</p>
+    <nav>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="#bedroom">
+                            <img src="img/bedroom.png" width="125" height="125" alt="Bedroom">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#livingroom">
+                            <img src="img/livingroom.png" width="125" height="125" alt="Living Room">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#kitchen">
+                            <img src="img/kitchen.png" width="125" height="125" alt="Kitchen">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#garden">
+                            <img src="img/garden.png" width="125" height="125" alt="Garden">
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </nav>
+    <h2 id="bedroom">Bedroom</h2>
+    <div class="sensors">
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/temperature.png" width="35" alt="" />
+                Temperature Sensor
+            </summary>
+            <dl>
+                <dt>Reading</dt>
+                <dd>26&deg;C <meter min="0" max="40" low="20" high="22" optimum="24" value="26">26 &deg;C</meter></dd>
+                <dt>Status</dt>
+                <dd>Active! Low battery!</dd>
+                <dt>Battery</dt>
+                <dd>10% <input type="color" value="#D30000" disabled class="batt" /></dd>
+            </dl>
+        </details>
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/contact.png" width="35" alt="">Contact Sensor
+            </summary>
+            <dl>
+                <dd><input type="checkbox" disabled checked> Bedroom door open</dd>
+                <dt>Status</dt>
+                <dd>Active!</dd>
+                <dt>Battery</dt>
+                <dd>62% <input type="color" value="#CCFF00" disabled class="batt" /></dd>
+            </dl>
+        </details>
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/ambient.png" width="35" alt=""> Ambient Light Sensor
+            </summary>
+            <dl>
+                <dd><input type="range" min="0" max="100" value="30"></dd>
+                <dt>Status</dt>
+                <dd>Active!</dd>
+                <dt>Battery</dt>
+                <dd>100% <input type="color" value="#008000" disabled class="batt" /></dd>
+            </dl>
+        </details>
+    </div>
+    <h2 id="livingroom">Living Room</h2>
+    <div class="sensors">
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/temperature.png" width="35" alt="" />
+                Temperature Sensor
+
+            </summary>
+            <dl>
+                <dt>Reading</dt>
+                <dd>22&deg;C <meter min="0" max="40" low="20" high="22" optimum="24" value="22">22&deg;C</meter></dd>
+                <dt>Status</dt>
+                <dd>Active!</dd>
+                <dt>Battery</dt>
+                <dd>42% <input type="color" value="#D5B60A" disabled class="batt" /></dd>
+            </dl>
+        </details>
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/mmwave.png" width="35" alt="" />
+                Millimeter Wave Sensor
+            </summary>
+            <dl>
+                <dd>Detected <input type="number" value="8" disabled style="width: 3ch;"> people within
+                    the room.</dd>
+                <dt>Status</dt>
+                <dd>Active! Very low battery!</dd>
+                <dt>Battery</dt>
+                <dd>8% <input type="color" value="#8B0000" disabled class="batt" /></dd>
+            </dl>
+        </details>
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/ambient.png" width="35" alt="" />
+                Ambient Light Sensor
+            </summary>
+            <dl>
+                <dd>Disabled due to active sunlight.</dd>
+                <dt>Status</dt>
+                <dd>Inactive.</dd>
+                <dt>Battery</dt>
+                <dd>100% <input type="color" value="#008000" disabled class="batt" /></dd>
+            </dl>
+        </details>
+    </div>
+    <h2 id="kitchen">Kitchen</h2>
+    <div class="sensors">
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/co2.png" width="35" alt="" />
+                CO<sub>2</sub> Sensor
+            </summary>
+            <dl>
+                <dt>Reading</dt>
+                <dd><progress value="620" max="5000"></progress>620 ppm</dd>
+                <dt>Status</dt>
+                <dd>Active!</dd>
+                <dt>Battery</dt>
+                <dd>94% <input type="color" value="#006400" disabled class="batt" /></dd>
+            </dl>
+        </details>
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/pantry.png" width="35" alt="" />
+                Pantry Light Sensor
+            </summary>
+            <dl>
+                <dd>Pantry light <strong>active!</strong></dd>
+                <dt>Status</dt>
+                <dd>Active!</dd>
+                <dt>Battery</dt>
+                <dd>26% <input type="color" value="#FF8C00" disabled class="batt" /></dd>
+            </dl>
+        </details>
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/temperature.png" width="35" alt="" />
+                Temperature Sensor
+            </summary>
+            <dl>
+                <dd>Reading unavailable...</dd>
+                <dt>Status</dt>
+                <dd>Inactive! Change battery...</dd>
+                <dt>Battery</dt>
+                <dd>0% <input type="color" value="#000000" disabled class="batt"></dd>
+            </dl>
+        </details>
+    </div>
+    <h2 id="garden">Garden</h2>
+    <div class="sensors">
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/temperature.png" width="35" alt="" />
+                Temperature Sensor
+            </summary>
+            <dl>
+                <dt>Reading</dt>
+                <dd>20&deg;C <meter min="0" max="40" low="20" high="22" optimum="24" value="20"">20&deg;C</meter></dd>
+                <dt>Status</dt>
+                <dd>Active!</dd>
+                <dt>Battery</dt>
+                <dd>30% <input type=" color" value="#FFA500" disabled class="batt" /></dd>
+            </dl>
+        </details>
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/motion.png" width="35" alt="" />
+                Motion Sensor
+            </summary>
+            <dl>
+                <dd><strong>Monitoring...</strong></dd>
+                <dt>Status</dt>
+                <dd>Active! Low battery!</dd>
+                <dt>Battery</dt>
+                <dd>15% <input type="color" value="#FF2400" disabled class="batt" /></dd>
+            </dl>
+        </details>
+        <details class="sensor">
+            <summary>
+                <img src="img/sensors/sprinkler.png" width="35" alt="" id="spr" />
+                Automatic Sprinkler Sensor
+            </summary>
+            <dl>
+                <dd><output>Plants are watered!</output></dd>
+                <dt>Status</dt>
+                <dd>Active!</dd>
+                <dt>Battery</dt>
+                <dd>78% <input type="color" value="#90EE90" disabled class="batt" /></dd>
+            </dl>
+        </details>
+    </div>
+    <details id="notif">
+        <summary id="b"><img src="img/notif.png" alt="Notifications"></summary>
+        <div class="n"><button type="button">Clear Notifications...</button>
+            <details>
+                <summary>Bedroom</summary>
+                <ul>
+                    <li>[10/12/2026 @ 7:06 PM (Temperature Sensor)] Read temperature is <strong>out of normal
+                            range</strong>.
+                        Range: 20&deg;C &lt; temp &lt; 24&deg;C</li>
+                    <li>[10/10/2026 @ 10:15 PM (Contact Sensor)] <strong>Bedroom door closed!</strong></li>
+                    <li>[10/10/2026 @ 10:11 PM (Contact Sensor)] <strong>Bedroom door opened!</strong></li>
+                    <li>[10/08/2026 @ 4:34 PM (Ambient Light Sensor)] Changed lights from <strong>moody</strong> to
+                        <strong>regular</strong> preset.
+                    </li>
+                </ul>
+            </details>
+            <details>
+                <summary>Living Room</summary>
+                <ul>
+                    <li>[10/13/2026 @ 2:47PM (Ambient Light Sensor)] Sunlight detected! Turning off lights...</li>
+                    <li>[10/10/2026 @ 7:30 PM (Millimeter Wave Sensor)] <strong>Detected 10 people on the couch, turning
+                            TV
+                            on...</strong> Range: 1 &lt; people &lt; 15.</li>
+                    <li>[10/08/2026 @ 10:08 PM (Temperature Sensor)] <strong>Battery empty!</strong> Please charge...
+                    </li>
+                    <li>[10/06/2026 @ 10:15 PM (Ambient Light Sensor)] Added new light preset: <strong>dim</strong></li>
+                </ul>
+            </details>
+            <details>
+                <summary>Kitchen</summary>
+                <ul>
+                    <li>[9/20/2026 @ 6:45 PM (CO<sub>2</sub> Sensor)] Very high CO<sub>2</sub> reading (<strong>&gt;5000
+                            ppm</strong>),
+                        possible fire. Range: 250 &lt; ppm &lt; 5000.</li>
+                    <li>[10/12/2026 @ 3:15 PM (Pantry Light Sensor)] Door has been open for 20 minutes, dimming light to
+                        conserve
+                        energy.</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Garden</summary>
+                <ul>
+                    <li>[10/05/2026 @ 11:15 AM (Automatic Sprinkler Sensor)] Sprinklers will be active in 5 minutes!
+                    </li>
+                    <li>[10/02/2026 @ 2:13 AM (Motion Sensor)] <strong>Movement detected!</strong> Was that you?</li>
+                </ul>
+            </details>
+        </div>
+    </details>
+</body>
+
+</html>
