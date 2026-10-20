@@ -76,6 +76,10 @@ nav img {
     font-family: "Space Grotesk", system-ui, sans-serif;
 }
 
+.sensor:hover {
+    background-color: rgba(75, 100, 150, 0.5);
+}
+
 .sensor summary {
     list-style: none;
     cursor: pointer;
@@ -132,6 +136,7 @@ nav img {
     border-radius: 24px;
     user-select: none;
     outline: none;
+    transition: background-color 0.2s, border-radius 0.2s, transform 0.2s;
 }
 
 #b:hover {
