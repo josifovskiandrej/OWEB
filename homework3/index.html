@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Racing Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="control-panel-layout">
+        <div class="main">
+            <div class="controls">
+                <button id="next">Next lap</button>
+                <button id="reset">New race</button>
+                <span id="lap">Lap 0/10</span>
+            </div>
+            <div id="winner"></div>
+            <table id="info">
+                <thead>
+                    <tr>
+                        <th>Pos</th><th>Driver</th><th>Team</th><th>Speed</th><th>Skill</th>
+                        <th>Tire</th><th>Start of Lap</th><th>End of Lap</th><th>Lap Time</th><th>Total Time</th>
+                    </tr>
+                </thead>
+                <tbody id="race"></tbody>
+            </table>
+        </div>
+        <div class="events">
+            <h2>Event Viewer</h2>
+            <table id="event-info">
+                <thead>
+                    <tr><th>Lap</th><th>Event</th></tr>
+                </thead>
+                <tbody id="events"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
