@@ -116,17 +116,17 @@ function updatetable() {
     let html = "";
     for (let i = 0; i < sorted.length; i++) {
         const d = sorted[i];
-        html += `<tr>
+        html += `<tr class="${d.out ? "" : "p" + (i + 1)}">
         <td>${d.out ? "-" : i + 1}</td>
-        <td>${d.name}</td>
-        <td>${d.team}</td>
+        <td class="driver">${d.name}</td>
+        <td class="team">${d.team}</td>
         <td>${d.speed}</td>
         <td>${d.skill}</td>
         <td>${d.tire}</td>
         <td>${d.startStatus}</td>
         <td>${d.status}</td>
-        <td>${d.lapTime ? format(d.lapTime) : "-"}</td>
-        <td>${d.total ? format(d.total) : "-"}</td>
+        <td class="time">${d.lapTime ? format(d.lapTime) : "-"}</td>
+        <td class="time">${d.total ? format(d.total) : "-"}</td>
         </tr>`;
     }
     document.getElementById("race").innerHTML = html;
@@ -211,4 +211,5 @@ function reset() {
 
 document.getElementById("next").onclick = lap;
 document.getElementById("reset").onclick = reset;
-race();  
+race();
+document.getElementById("next").disabled = true;

@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap");
+
+:root {
+  --red: #e10600;
+  --asphalt: #15151e;
+  --carbon: #1f1f2b;
+  --line: #3a3a4a;
+  --muted: #a0a0b4;
+  --gold: #ffd700;
+  --silver: #c0c0c8;
+  --bronze: #cd7f32;
+  --yellow: #ffd400;
+  --blue: #2fa4ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Titillium Web", Arial, sans-serif;
+  color: #fff;
+  background: var(--asphalt);
+  border-top: 6px solid var(--red);
+}
+
+body::before {
+  content: "";
+  display: block;
+  height: 12px;
+  background: conic-gradient(#fff 25%, #000 0 50%, #fff 0 75%, #000 0) 0 0 / 24px 24px;
+}
+
+.control-panel-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 24px;
+  align-items: flex-start;
+}
+
+.main {
+  flex: 2 1 600px;
+  min-width: 0;
+}
+
+.events {
+  flex: 1 1 300px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.main,
+.events {
+  background: var(--carbon);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--red);
+  padding: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--red);
+  border: none;
+  padding: 12px 28px 12px 24px;
+  cursor: pointer;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+}
+
+button:hover:not(:disabled) {
+  background: #ff1a12;
+}
+
+button:disabled {
+  background: var(--line);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+#reset {
+  background: var(--line);
+}
+
+#lap {
+  margin-left: auto;
+  font-size: 1.4rem;
+  font-weight: 900;
+  font-style: italic;
+  padding: 6px 16px;
+  background: var(--asphalt);
+  border-bottom: 3px solid var(--red);
+}
+
+#winner:not(:empty) {
+  margin-bottom: 16px;
+  padding: 14px 20px;
+  font-size: 1.6rem;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #000;
+  background: var(--gold);
+  border-left: 8px solid var(--red);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  padding: 10px;
+  border-bottom: 2px solid var(--red);
+  white-space: nowrap;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+#info {
+  display: block;
+  overflow-x: auto;
+}
+
+#race tr:hover {
+  background: #2a2a38;
+}
+
+#race td:first-child {
+  width: 52px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 900;
+  font-style: italic;
+  background: var(--asphalt);
+  border-left: 5px solid var(--line);
+}
+
+#race .p1 td:first-child {
+  border-left-color: var(--gold);
+  color: var(--gold);
+}
+
+#race .p2 td:first-child {
+  border-left-color: var(--silver);
+  color: var(--silver);
+}
+
+#race .p3 td:first-child {
+  border-left-color: var(--bronze);
+  color: var(--bronze);
+}
+
+.driver {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.team {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.time {
+  font-family: Consolas, monospace;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.events h2 {
+  margin: 0 0 14px;
+  font-size: 1.4rem;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+#events td:first-child {
+  width: 48px;
+  text-align: center;
+  font-weight: 900;
+  color: var(--muted);
+}
+
+#events tr {
+  border-left: 4px solid var(--line);
+}
+
+#events .safety-car {
+  border-left-color: var(--yellow);
+  background: rgba(255, 212, 0, 0.12);
+}
+
+#events .pit {
+  border-left-color: var(--blue);
+  background: rgba(47, 164, 255, 0.1);
+}
+
+#events .crash {
+  border-left-color: var(--red);
+  background: rgba(225, 6, 0, 0.14);
+}
