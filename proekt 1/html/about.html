@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Aero</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/plane-ico.webp">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light aero-nav sticky-top">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+            <img src="../assets/img/plane.webp" height="30" class="mr-2" alt="">
+            Aero
+        </a>
+        <div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav flex-row flex-wrap justify-content-around align-items-center py-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="dest.html">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calc.html">Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-accent rounded-pill px-3" type="button">Log in</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <h2>About Aero</h2>
+        <p class="lead">Aero takes your trip planning to the next level. Browse destinations for your next
+            extraordinary trip, share the ups and downs of each trip, read other users' experiences and, most
+            importantly, spend responsibly by seeing the exact amount you need for your trip.</p>
+
+        <hr class="my-5">
+
+        <h2>Survey</h2>
+        <p>Be sure to fill out this survey and give us feedback!</p>
+
+        <div class="row">
+            <div class="col-lg-7 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <form id="sf">
+                            <div class="form-group">
+                                <label for="sn">Name</label>
+                                <input class="form-control" id="sn" required minlength="2">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="se">E-mail</label>
+                                <input type="email" class="form-control" id="se" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rate">How would rate the app? <span class="badge badge-primary"
+                                        id="rv">3</span></label>
+                                <input type="range" class="custom-range" id="rate" min="1" max="5" value="3">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="d-block">Which part was most useful to you?</label>
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input" id="l0" value="Destinations">
+                                    <label class="custom-control-label" for="l0">Destinations</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input" id="l1" value="Gallery">
+                                    <label class="custom-control-label" for="l1">Gallery</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input" id="l2" value="Blog">
+                                    <label class="custom-control-label" for="l2">Blog</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input" id="l3" value="Calculator">
+                                    <label class="custom-control-label" for="l3">Calculator</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="st">Additional comments</label>
+                                <textarea class="form-control" id="st" rows="3" required minlength="10"></textarea>
+                            </div>
+
+                            <button class="btn btn-accent rounded-pill px-4">Submit</button>
+                        </form>
+
+                        <div class="alert alert-success mt-3 mb-0 d-none" id="thanks">Thank you for your feedback!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5>Results</h5>
+                        <div id="stats"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="aero-footer py-4 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h5>Aero</h5>
+                    <p class="mb-1">Go airborne, without the headaches.</p>
+                    <div>
+                        <a href="dest.html">Destinations</a> ·
+                        <a href="gallery.html">Gallery</a> ·
+                        <a href="calc.html">Calculator</a> ·
+                        <a href="blog.html">Blog</a> ·
+                        <a href="about.html">About</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 text-md-right mt-4 mt-md-0">
+                    <img src="../assets/img/plane.webp" alt="Aero logo" height="50">
+                    <p class="small mt-2 mb-0">© 2026 Aero</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/about.js"></script>
+</body>
+
+</html>
