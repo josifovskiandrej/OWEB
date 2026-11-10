@@ -54,6 +54,8 @@ document.getElementById("loginForm").onsubmit = function(event) {
 
     let getVal = (id) => document.getElementById(id).value.trim().toLowerCase();
 
+    let usernameInput = document.getElementById("loginName");
+    let passwordInput = document.getElementById("loginPass");
     let username = getVal("loginName");
     let password = getVal("loginPass");
     let errorDiv = document.getElementById("loginError");
