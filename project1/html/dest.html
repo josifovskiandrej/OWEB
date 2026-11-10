@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
@@ -34,13 +36,10 @@
                     <a class="nav-link" href="gallery.html">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="calc.html">Calculator</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="blog.html">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="survey.html">User Survey</a>
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-accent rounded-pill px-3" type="button">Log in</button>
@@ -51,38 +50,78 @@
 
     <main class="container mt-4">
         <h2>Destinations</h2>
-        <div class="row">
-            <div class="col-lg-4 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body">
-                        <h5>Add a destination</h5>
-                        <form id="add" novalidate>
-                            <input class="form-control mb-2" id="fname" placeholder="City" required>
-                            <input class="form-control mb-2" id="fcountry" placeholder="Country" required>
-                            <select class="form-control mb-2" id="fcat"></select>
-                            <input type="number" min="0" class="form-control mb-2" id="fflight"
-                                placeholder="Flight &euro; &amp; person" required>
-                            <input type="number" min="0" class="form-control mb-2" id="fday"
-                                placeholder="Stay &#43; food &euro; / person / day" required>
-                            <textarea class="form-control mb-2" id="fdesc" rows="2"
-                                placeholder="Description"></textarea>
-                            <button class="btn btn-accent btn-block">Add</button>
-                        </form>
+
+        <ul class="blog-tabs list-unstyled mb-4" id="viewPills">
+            <li>
+                <button type="button" class="blog-tab active" id="btnDestTab" onclick="switchView('dest')">
+                    Viewer
+                </button>
+            </li>
+            <li>
+                <button type="button" class="blog-tab" id="btnCalcTab" onclick="switchView('calc')">
+                    Trip Calculator
+                </button>
+            </li>
+        </ul>
+
+        <div id="destSection">
+            <div class="form-row mb-4">
+                <div class="col-6 col-md-3"><label class="small" for="days">Days</label><input class="form-control"
+                        id="days" type="number" min="1" value="3"></div>
+                <div class="col-6 col-md-3"><label class="small" for="ppl">Persons</label><input class="form-control"
+                        id="ppl" type="number" min="1" value="1"></div>
+                <div class="col-6 col-md-3"><label class="small" for="max">Max budget €</label><input
+                        class="form-control" id="max" type="number" min="0" placeholder="no limit"></div>
+                <div class="col-6 col-md-3"><label class="small" for="cat">Category</label><select class="form-control"
+                        id="cat"></select></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5>Add a destination</h5>
+                            <form id="add" novalidate>
+                                <input class="form-control mb-2" id="fname" placeholder="City" required>
+                                <input class="form-control mb-2" id="fcountry" placeholder="Country" required>
+                                <select class="form-control mb-2" id="fcat"></select>
+                                <input type="number" min="0" class="form-control mb-2" id="fflight"
+                                    placeholder="Flight &lpar;&euro;&rpar; &#47; person" required>
+                                <input type="number" min="0" class="form-control mb-2" id="fday"
+                                    placeholder="Stay &#43; food &lpar;&euro;&rpar; &#47; person &#47; day" required>
+                                <textarea class="form-control mb-2" id="fdesc" rows="2"
+                                    placeholder="Description"></textarea>
+                                <button class="btn btn-accent btn-block">Add</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="form-row mb-4">
-                    <div class="col-6 col-md-3"><label class="small" for="days">Days</label><input class="form-control"
-                            id="days" type="number" min="1" value="3"></div>
-                    <div class="col-6 col-md-3"><label class="small" for="ppl">Persons</label><input
-                            class="form-control" id="ppl" type="number" min="1" value="1"></div>
-                    <div class="col-6 col-md-3"><label class="small" for="max">Max budget €</label><input
-                            class="form-control" id="max" type="number" min="0" placeholder="no limit"></div>
-                    <div class="col-6 col-md-3"><label class="small" for="cat">Category</label><select
-                            class="form-control" id="cat"></select></div>
+                <div class="col-lg-8">
+                    <div class="row" id="list"></div>
                 </div>
-                <div class="row" id="list"></div>
+            </div>
+        </div>
+
+        <div id="calcSection" class="d-none">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Pick a destination</h5>
+                    <div id="picker"></div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 id="chosen" class="mb-3"></h3>
+                            <div class="form-row mb-3">
+                                <div class="col"><label for="calcDays">Days</label><input type="number" min="1"
+                                        value="3" class="form-control" id="calcDays"></div>
+                                <div class="col"><label for="calcPpl">Persons</label><input type="number" min="1"
+                                        value="1" class="form-control" id="calcPpl"></div>
+                            </div>
+                            <div id="out"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -96,9 +135,8 @@
                     <div>
                         <a href="dest.html">Destinations</a> ·
                         <a href="gallery.html">Gallery</a> ·
-                        <a href="calc.html">Calculator</a> ·
                         <a href="blog.html">Blog</a> ·
-                        <a href="about.html">About</a>
+                        <a href="survey.html">User Survey</a>
                     </div>
                 </div>
 
@@ -111,6 +149,7 @@
     </footer>
 
     <script src="../js/auth.js"></script>
+    <script src="../js/nav.js"></script>
     <script src="../js/data.js"></script>
     <script src="../js/dest.js"></script>
 </body>

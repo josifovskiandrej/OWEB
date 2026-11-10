@@ -11,6 +11,7 @@ document.body.insertAdjacentHTML("beforeend",
     '</div>' +
     '<div class="modal-body">' +
     '<p class="text-muted">Log in to access your account.</p>' +
+    '<div id="loginError" class="text-danger small mb-2 d-none"></div>' +
     '<input class="form-control mb-2" id="loginName" placeholder="Username" required minlength="3">' +
     '<input class="form-control mb-2" id="loginPass" type="password" placeholder="Password" required minlength="4">' +
     '</div>' +
@@ -37,19 +38,43 @@ function showLoginState() {
     }
 }
 
-loginButton.onclick = function () {
+loginButton.onclick = function() {
     if (localStorage.getItem("aeroUser") != null) {
         localStorage.removeItem("aeroUser");
         showLoginState();
     } else {
+        document.getElementById("loginError").classList.add("d-none");
+        document.getElementById("loginPass").classList.remove("is-invalid");
         $("#loginModal").modal("show");
     }
 };
 
-document.getElementById("loginForm").onsubmit = function (event) {
+document.getElementById("loginForm").onsubmit = function(event) {
     event.preventDefault();
 
-    localStorage.setItem("aeroUser", document.getElementById("loginName").value.trim());
+    let getVal = (id) => document.getElementById(id).value.trim().toLowerCase();
+
+    let username = getVal("loginName");
+    let password = getVal("loginPass");
+    let errorDiv = document.getElementById("loginError");
+    let reversedUser = username.split("").reverse().join("");
+
+    let isSimilar = password === username ||
+        password === reversedUser ||
+        password.includes(username) ||
+        username.includes(password);
+
+    if (isSimilar) {
+        errorDiv.textContent = "Password cannot be the same as or a variation of your username.";
+        errorDiv.classList.remove("d-none");
+        passwordInput.classList.add("is-invalid");
+        return;
+    }
+
+    errorDiv.classList.add("d-none");
+    passwordInput.classList.remove("is-invalid");
+
+    localStorage.setItem("aeroUser", usernameInput.value.trim());
     document.getElementById("loginForm").reset();
     $("#loginModal").modal("hide");
     showLoginState();

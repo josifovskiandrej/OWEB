@@ -1,11 +1,3 @@
-const popularDestinations = [
-    { name: "Paris", country: "France", img: "assets/img/dest/paris.webp" },
-    { name: "Rome", country: "Italy", img: "assets/img/dest/rome.webp" },
-    { name: "Barcelona", country: "Spain", img: "assets/img/dest/barcelona.webp" },
-    { name: "Dubai", country: "UAE", img: "assets/img/dest/dubai.webp" },
-    { name: "Tokyo", country: "Japan", img: "assets/img/dest/tokyo.webp" }
-];
-
 const container = document.getElementById("popular");
 
 for (let i = 0; i < popularDestinations.length; i++) {

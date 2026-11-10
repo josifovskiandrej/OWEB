@@ -44,19 +44,28 @@ function openCity(id) {
     $("#m").modal("show");
 }
 
+function getUser() {
+    return localStorage.getItem("aeroUser") || "Guest";
+}
+
 function showReactions() {
     let comments = "";
     for (let i = city.comments.length - 1; i >= 0; i--) {
+        let u = city.comments[i].user || "Guest";
+
         comments += '<div class="comment"><small class="text-muted">' + city.comments[i].date + '</small>' +
-            '<div>' + city.comments[i].text + '</div></div>';
+            '<div><b>' + u + ':</b> ' + city.comments[i].text + '</div></div>';
     }
     if (comments == "") {
         comments = '<p class="text-muted">No comments yet.</p>';
     }
 
+    let likeFill = (city.reactions && city.reactions[getUser()] == "like") ? "btn-success" : "btn-outline-success";
+    let dislikeFill = (city.reactions && city.reactions[getUser()] == "dislike") ? "btn-danger" : "btn-outline-danger";
+
     document.getElementById("reactions").innerHTML =
-        '<button class="btn btn-outline-success" onclick="addLike()"><ion-icon name="thumbs-up"></ion-icon> ' + city.likes + '</button> ' +
-        '<button class="btn btn-outline-danger" onclick="addDislike()"><ion-icon name="thumbs-down"></ion-icon> ' + city.dislikes + '</button>' +
+        '<button class="btn ' + likeFill + '" onclick="addLike()"><ion-icon name="thumbs-up"></ion-icon> ' + city.likes + '</button> ' +
+        '<button class="btn ' + dislikeFill + '" onclick="addDislike()"><ion-icon name="thumbs-down"></ion-icon> ' + city.dislikes + '</button>' +
         '<h6 class="mt-3">Comments (' + city.comments.length + ')</h6>' +
         '<form class="mb-3" onsubmit="addComment(event)">' +
         '<textarea class="form-control mb-2" id="commentText" rows="2" placeholder="Write a comment..." required></textarea>' +
@@ -65,21 +74,44 @@ function showReactions() {
 }
 
 function addLike() {
-    city.likes++;
+    if (!city.reactions) city.reactions = {};
+
+    if (city.reactions[getUser()] == "like") {
+        city.likes--;
+        delete city.reactions[getUser()];
+    } else {
+        if (city.reactions[getUser()] == "dislike") city.dislikes--;
+        city.likes++;
+        city.reactions[getUser()] = "like";
+    }
+
     saveDestinations();
     showReactions();
+    showGrid();
 }
 
 function addDislike() {
-    city.dislikes++;
+    if (!city.reactions) city.reactions = {};
+
+    if (city.reactions[getUser()] == "dislike") {
+        city.dislikes--;
+        delete city.reactions[getUser()];
+    } else {
+        if (city.reactions[getUser()] == "like") city.likes--;
+        city.dislikes++;
+        city.reactions[getUser()] = "dislike";
+    }
+
     saveDestinations();
     showReactions();
+    showGrid();
 }
 
 function addComment(event) {
     event.preventDefault();
 
     let newComment = {
+        user: getUser(),
         text: document.getElementById("commentText").value,
         date: new Date().toLocaleString()
     };
@@ -87,6 +119,7 @@ function addComment(event) {
 
     saveDestinations();
     showReactions();
+    showGrid();
 }
 
 $("#m").on("hidden.bs.modal", showGrid);

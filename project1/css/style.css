@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
 
+ion-icon {
+    vertical-align: middle;
+}
+
 body {
     min-height: 100vh;
     display: flex;
@@ -31,6 +35,12 @@ h5 {
     font-size: 1.8rem;
 }
 
+#greeting {
+    margin-right: 0.75rem;
+    color: #1b4965;
+    vertical-align: middle;
+}
+
 footer {
     margin-top: auto;
 }
@@ -51,6 +61,11 @@ footer {
 
 .aero-nav .navbar-nav .nav-link:hover {
     color: #e76f51;
+}
+
+.aero-nav .navbar-nav .nav-link.active-page {
+    color: #e76f51 !important;
+    font-weight: 600;
 }
 
 .btn-accent {
@@ -110,6 +125,24 @@ footer {
 .dest-card .card-title {
     font-size: 2rem;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dest-badge {
+    background-color: #fde4d3;
+    color: #1b4965;
+    font-weight: 600;
+}
+
+.btn-delete-dest {
+    color: #e76f51;
+    border: 1px solid #e76f51;
+    background-color: transparent;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-delete-dest:hover {
+    background-color: #e76f51;
+    color: #ffffff;
 }
 
 .aero-footer {
@@ -189,6 +222,7 @@ footer {
     flex-wrap: wrap;
     gap: 0.6rem;
     padding: 0;
+    justify-content: center;
 }
 
 .blog-tab {
@@ -227,8 +261,35 @@ footer {
     box-shadow: 0 4px 12px rgba(255, 158, 109, 0.5);
 }
 
-#greeting {
-    margin-right: 0.75rem;
+#reactions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.survey-response-card {
+    border-left: 4px solid #1b4965 !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.survey-response-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05) !important;
+}
+
+.survey-badge {
+    background-color: #fde4d3;
     color: #1b4965;
-    vertical-align: middle;
+    font-weight: 600;
+}
+
+.survey-badge-rating {
+    background-color: #fde4d3;
+    color: #1b4965;
+    font-weight: 600;
+}
+
+#stats {
+    max-height: 450px;
+    overflow-y: auto;
 }

@@ -1,11 +1,3 @@
-const sights = {
-    paris: ["Eiffel Tower", "Louvre", "Notre-Dame", "Arc de Triomphe", "Montmartre", "Versailles", "Musée d'Orsay", "Seine cruise", "Latin Quarter", "Champs-Élysées"],
-    rome: ["Colosseum", "Roman Forum", "Pantheon", "Trevi Fountain", "Spanish Steps", "Vatican Museums", "Sistine Chapel", "Piazza Navona", "Trastevere", "Baths of Caracalla"],
-    barcelona: ["Sagrada Família", "Park Güell", "Casa Batlló", "La Rambla", "Gothic Quarter", "Barceloneta Beach", "Montjuïc", "Camp Nou", "La Boqueria", "Casa Milà"],
-    dubai: ["Burj Khalifa", "Dubai Mall", "Palm Jumeirah", "Dubai Fountain", "Desert safari", "Old Dubai souks", "Dubai Marina", "Museum of the Future", "Jumeirah Beach", "Dubai Frame"],
-    tokyo: ["Senso-ji", "Shibuya Crossing", "Meiji Shrine", "Tokyo Skytree", "Akihabara", "Shinjuku", "Tsukiji Outer Market", "Imperial Palace", "Ueno Park", "teamLab Planets"]
-};
-
 let current = null;
 if (destinations.length > 0) {
     current = destinations[0];

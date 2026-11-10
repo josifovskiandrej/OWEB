@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Aero</title>
+    <title>User Survey | Aero</title>
     <link rel="icon" type="image/x-icon" href="../assets/img/plane-ico.webp">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -34,13 +34,10 @@
                     <a class="nav-link" href="gallery.html">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="calc.html">Calculator</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="blog.html">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="survey.html">User Survey</a>
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-accent rounded-pill px-3" type="button">Log in</button>
@@ -50,13 +47,6 @@
     </nav>
 
     <main class="container mt-4">
-        <h2>About Aero</h2>
-        <p class="lead">Aero takes your trip planning to the next level. Browse destinations for your next
-            extraordinary trip, share the ups and downs of each trip, read other users' experiences and, most
-            importantly, spend responsibly by seeing the exact amount you need for your trip.</p>
-
-        <hr class="my-5">
-
         <h2>Survey</h2>
         <p>Be sure to fill out this survey and give us feedback!</p>
 
@@ -64,20 +54,59 @@
             <div class="col-lg-7 mb-4">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
-                        <form id="sf">
-                            <div class="form-group">
-                                <label for="sn">Name</label>
-                                <input class="form-control" id="sn" required minlength="2">
+                        <form id="sf" novalidate>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="sfname">First name</label>
+                                    <input class="form-control" id="sfname" required minlength="2">
+                                    <div class="invalid-feedback">Please enter your first name.</div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="slname">Last name</label>
+                                    <input class="form-control" id="slname" required minlength="2">
+                                    <div class="invalid-feedback">Please enter your last name.</div>
+                                </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="se">E-mail</label>
                                 <input type="email" class="form-control" id="se" required>
+                                <div class="invalid-feedback">Please provide a valid e-mail address.</div>
                             </div>
 
                             <div class="form-group">
-                                <label for="rate">How would rate the app? <span class="badge badge-primary"
-                                        id="rv">3</span></label>
+                                <label for="freq">How often do you travel per year?</label>
+                                <select class="form-control" id="freq" required>
+                                    <option value="" disabled selected>Select frequency...</option>
+                                    <option value="Rarely">Rarely (Less than once a year)</option>
+                                    <option value="1-2 times">1-2 times a year</option>
+                                    <option value="3+ times">3 or more times a year</option>
+                                </select>
+                                <div class="invalid-feedback">Please select your travel frequency.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="d-block">How easy was it to navigate Aero?</label>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="nav1" name="navigation" value="Easy"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="nav1">Easy</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="nav2" name="navigation" value="Average"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="nav2">Average</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="nav3" name="navigation" value="Difficult"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="nav3">Difficult</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rate">How would rate the app? <span
+                                        class="badge px-2 py-1 survey-badge-rating" id="rv">3</span></label>
                                 <input type="range" class="custom-range" id="rate" min="1" max="5" value="3">
                             </div>
 
@@ -95,18 +124,14 @@
                                     <input type="checkbox" class="custom-control-input" id="l2" value="Blog">
                                     <label class="custom-control-label" for="l2">Blog</label>
                                 </div>
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="l3" value="Calculator">
-                                    <label class="custom-control-label" for="l3">Calculator</label>
-                                </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="st">Additional comments</label>
-                                <textarea class="form-control" id="st" rows="3" required minlength="10"></textarea>
+                                <textarea class="form-control" id="st" rows="3"></textarea>
                             </div>
 
-                            <button class="btn btn-accent rounded-pill px-4">Submit</button>
+                            <button class="btn btn-accent rounded-pill px-4" type="submit">Submit</button>
                         </form>
 
                         <div class="alert alert-success mt-3 mb-0 d-none" id="thanks">Thank you for your feedback!</div>
@@ -115,6 +140,14 @@
             </div>
 
             <div class="col-lg-5 mb-4">
+                <!-- Dismissible Notification Alert Above Results -->
+                <div class="alert alert-info alert-dismissible fade show d-none" id="surveyAlert" role="alert">
+                    <span id="alertMessage">Notification message</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
                         <h5>Results</h5>
@@ -134,9 +167,8 @@
                     <div>
                         <a href="dest.html">Destinations</a> ·
                         <a href="gallery.html">Gallery</a> ·
-                        <a href="calc.html">Calculator</a> ·
                         <a href="blog.html">Blog</a> ·
-                        <a href="about.html">About</a>
+                        <a href="survey.html">User Survey</a>
                     </div>
                 </div>
 
@@ -149,7 +181,8 @@
     </footer>
 
     <script src="../js/auth.js"></script>
-    <script src="../js/about.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/survey.js"></script>
 </body>
 
 </html>
